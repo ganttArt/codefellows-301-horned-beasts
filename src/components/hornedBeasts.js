@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, Col } from 'react-bootstrap';
 
 class HornedBeast extends React.Component {
   constructor(props) {
@@ -9,17 +10,21 @@ class HornedBeast extends React.Component {
   }
 
   addFavorite = () => {
-    this.setState({favorites: this.state.favorites + 1});
+    this.setState({ favorites: this.state.favorites + 1 });
   }
 
   render() {
     return (
-      <div className="horned-beast">
-        <h2>{this.props.title}</h2>
-        <img onClick={this.addFavorite} src={this.props.source} alt={this.props.description}/>
-        <p>{this.props.description}</p>
-        <div>❤️ {this.state.favorites}</div>
-      </div>
+      <Col>
+        <Card style={{ width: "18rem"}}>
+          <Card.Img variant="top" onClick={this.addFavorite} src={this.props.source} alt={this.props.description}/>
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>{this.props.description}</Card.Text>
+            <small>❤️ {this.state.favorites}</small>
+          </Card.Body>
+        </Card>
+      </Col>
     );
   }
 }
