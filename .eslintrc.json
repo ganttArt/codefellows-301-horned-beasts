@@ -13,7 +13,6 @@
     "es6": true,
     "jest": true,
     "jquery": true,
-    "jsx": true,
     "node": true
   },
   "rules": {
