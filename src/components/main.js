@@ -10,13 +10,13 @@ class Main extends React.Component {
       <main>
         <Container>
           <Row>
-            {data.map((beast, index) => (
-              <div key={index}>
+            {data.map((beast) => (
+              <div key={beast.title}>
                 <HornedBeast
                   title={beast.title}
                   description={beast.description}
                   source={beast.image_url}
-                />;
+                />
               </div>
             ))}
           </Row>
