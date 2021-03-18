@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 class SelectedBeast extends React.Component {
   constructor(props) {
@@ -7,8 +8,8 @@ class SelectedBeast extends React.Component {
   }
   render() {
     return (
-      <Modal.Dialog>
-        <Modal.Header>
+      <Modal show={this.props.show} onHide={this.props.hide}>
+        <Modal.Header closeButton>
           <Modal.Title>{this.props.beast.title}</Modal.Title>
         </Modal.Header>
 
@@ -17,10 +18,14 @@ class SelectedBeast extends React.Component {
           <img
             src={this.props.beast.image_url}
             alt={this.props.beast.title}
-            style={{maxWidth: '100%'}}
+            style={{ width: '100%' }}
           />
         </Modal.Body>
-      </Modal.Dialog>
+        <Modal.Footer>
+          <Button onClick={this.props.hide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+
     )
   }
 }
