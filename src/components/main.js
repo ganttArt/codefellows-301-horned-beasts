@@ -13,18 +13,19 @@ class Main extends React.Component {
       <main>
         <Container>
           <Row>
-            {this.props.data.map((beast) => (
-              <div key={beast.title}>
-                <HornedBeast
-                  title={beast.title}
-                  description={beast.description}
-                  source={beast.image_url}
-                />
-              </div>
+            {this.props.data.map((beast, index) => (
+              <HornedBeast
+                key={index}
+                title={beast.title}
+                description={beast.description}
+                source={beast.image_url}
+                index={index}
+                handleModalVisibility= {this.props.handleModalVisibility}
+              />
             ))}
           </Row>
         </Container>
-      </main>
+      </main >
     );
   }
 }

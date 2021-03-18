@@ -16,7 +16,7 @@ class HornedBeast extends React.Component {
   render() {
     return (
       <Col>
-        <Card style={{ width: '18rem'}}>
+        <Card style={{ width: '18rem'}} onClick={() => this.props.handleModalVisibility(this.props.index)}>
           <Card.Img variant="top" onClick={this.addFavorite} src={this.props.source} alt={this.props.description}/>
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
