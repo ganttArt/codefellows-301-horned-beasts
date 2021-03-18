@@ -24,3 +24,10 @@ A React application that displays images and information of horned animals. This
 - Start time: 4:56pm
 - Finish time: 7:40pm
 - Actual time needed to complete: 64min
+
+### Lab 3, Feature 1: Display a Modal and data.json refactoring
+
+- Estimate of time needed to complete: 80min
+- Start time: 2:30pm
+- Finish time: 3:22pm
+- Actual time needed to complete: 52min
