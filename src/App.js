@@ -33,7 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
 
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
           <Form.Group>
             <Form.Label>Filter by Horn #</Form.Label>
             <Form.Control
