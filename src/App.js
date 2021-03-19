@@ -4,6 +4,7 @@ import Main from './components/main.js';
 import Footer from './components/footer.js';
 import SelectedBeast from './components/selectedBeast';
 import rawData from './data.json';
+import { Form } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends React.Component {
     this.state = {
       rawData: rawData,
       selectedBeast: {},
-      show: false
+      show: false,
+      hornNumber: 1
     }
   }
 
@@ -23,20 +25,37 @@ class App extends React.Component {
   }
 
   handleHide = () => {
-    this.setState({ show: false});
+    this.setState({ show: false });
   }
 
   render() {
     return (
       <div className="App">
         <Header />
+
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group>
+            <Form.Label>Filter by Horn #</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => this.setState({ hornNumber: Number(e.target.value) })}
+              style={{ width: '10em' }}
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>100</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+
         <SelectedBeast
           show={this.state.show}
           hide={this.handleHide}
           beast={this.state.selectedBeast}
         />
         <Main
-          data={rawData}
+          data={rawData.filter(beast => beast.horns === this.state.hornNumber)}
           updateSelectedBeast={this.updateSelectedBeast}
           handleModalVisibility={this.handleModalVisibility}
         />
